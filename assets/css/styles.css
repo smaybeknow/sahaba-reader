@@ -559,6 +559,149 @@ body {
   font-size: 13px
 }
 
+/* =========================
+   QUICK LINKS
+   ========================= */
+.quick-links {
+  width: min(1180px, calc(100% - 48px));
+  margin: 36px auto 54px;
+}
+.quick-links-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 18px;
+}
+.quick-kicker {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  letter-spacing: .18em;
+  font-weight: 700;
+  color: #cda85b;
+}
+
+.quick-links h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(26px, 3vw, 40px);
+  line-height: 1.05;
+  color: inherit;
+}
+
+/* карточкалар */
+.quick-links-grid {
+  display: grid;
+  /* desktop-та 4 */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+/* бір карточка */
+.quick-link-card {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 16px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 20px;
+  background: rgba(12, 25, 21, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform .22s ease,
+    border-color .22s ease;
+}
+
+
+.quick-link-card:hover {
+  transform: translateY(-3px);
+
+  background: rgba(25, 42, 35, 0.78);
+
+  border-color: rgba(205, 168, 91, .45);
+}
+
+
+/* icon */
+.quick-icon {
+  flex: 0 0 auto;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  font-size: 20px;
+
+  background: rgba(205, 168, 91, .14);
+  color: #dfbd72;
+}
+
+
+/* text */
+.quick-text {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  flex: 1;
+}
+
+
+.quick-text strong {
+  font-size: 16px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.quick-text small {
+  font-size: 12px;
+  line-height: 1.35;
+
+  opacity: .67;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* arrow */
+.quick-arrow {
+  flex: 0 0 auto;
+
+  font-size: 17px;
+
+  opacity: .55;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+/* өте кішкентай телефон */
+@media (max-width: 370px) {
+
+  .quick-links-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
 @media(max-width:900px) {
   .hero {
     grid-template-columns: 1fr
@@ -584,30 +727,437 @@ body {
   .bg-thumbs {
     grid-template-columns: repeat(5, 1fr)
   }
+  .quick-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
-@media (max-width: 500px) {
+/* =========================
+   MOBILE — SAHABA CARDS
+   ========================= */
 
-  /*
-    Телефонда blur көп болса фон қатты жоғалып кетеді.
-    Сондықтан blur-ды азайтамыз.
-  */
+@media (max-width: 768px) {
 
-  .reader {
-    background: rgba(250, 247, 238, 0.10) !important;
+  /* =========================
+     SAHABA CARDS
+     ========================= */
 
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+  .card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+
+    padding: 22px 20px !important;
+    border-radius: 26px !important;
+
+    min-height: auto !important;
+    height: auto !important;
+
+    margin-bottom: 18px !important;
+    gap: 12px !important;
   }
 
 
-  [data-theme="dark"] .reader {
-    background: rgba(16, 24, 21, 0.67) !important;
-  }
-.site-header {
-    background: rgba(245, 240, 226, 0.43) !important;
+  /* Карточка ішіндегі layout */
+  .card-content,
+  .card-inner,
+  .sahaba-card-content {
+    display: flex !important;
+    flex-direction: column !important;
 
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+
+  /* Арабша аты */
+  .card .arabic {
+    width: 100% !important;
+
+    font-size: 27px !important;
+    line-height: 1.35 !important;
+
+    margin: 0 !important;
+
+    text-align: left !important;
+  }
+
+
+  /* Негізгі аты */
+  .card h2,
+  .card h3,
+  .card .name,
+  .card .title {
+    width: 100% !important;
+
+    font-size: clamp(21px, 5.4vw, 28px) !important;
+    line-height: 1.1 !important;
+
+    margin: 0 !important;
+
+    text-align: left !important;
+
+    white-space: nowrap !important;
+
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+
+  /* Description */
+  .card p,
+  .card .summary,
+  .card .description {
+    width: 100% !important;
+    max-width: none !important;
+
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+
+    margin: 2px 0 0 !important;
+
+    text-align: left !important;
+
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+
+  /* Tags */
+  .card .facts,
+  .card .tags,
+  .card .badges {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    gap: 8px !important;
+
+    margin-top: 4px !important;
+  }
+
+
+  .card .fact,
+  .card .tag,
+  .card .badge,
+  .card .facts span,
+  .card .tags span,
+  .card .badges span {
+    font-size: 13px !important;
+
+    padding: 7px 11px !important;
+
+    border-radius: 999px !important;
+
+    white-space: nowrap !important;
+  }
+
+
+  /* =========================
+     DETAIL PAGE
+     ========================= */
+
+  .profile,
+  .detail-card,
+  .sahaba-detail {
+    width: calc(100% - 28px) !important;
+
+    margin: 14px auto !important;
+
+    padding: 24px 20px !important;
+
+    border-radius: 26px !important;
+  }
+
+
+  .profile .arabic,
+  .detail-card .arabic,
+  .sahaba-detail .arabic {
+    font-size: 32px !important;
+    line-height: 1.35 !important;
+
+    margin: 0 0 12px !important;
+
+    text-align: left !important;
+  }
+
+
+  .profile h1,
+  .detail-card h1,
+  .sahaba-detail h1 {
+    width: 100% !important;
+
+    font-size: clamp(28px, 7vw, 34px) !important;
+    line-height: 1.08 !important;
+
+    margin: 0 0 16px !important;
+    padding: 0 !important;
+
+    text-align: left !important;
+
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+
+  .profile .summary,
+  .detail-card .summary,
+  .sahaba-detail .summary {
+    width: 100% !important;
+
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+
+    margin: 0 0 18px !important;
+
+    text-align: left !important;
+  }
+
+
+  /* Detail page tags */
+  .profile .facts,
+  .detail-card .facts,
+  .sahaba-detail .facts {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-wrap: wrap !important;
+
+    gap: 8px !important;
+
+    margin-bottom: 26px !important;
+  }
+
+
+  .profile .facts span,
+  .detail-card .facts span,
+  .sahaba-detail .facts span {
+    width: auto !important;
+
+    font-size: 13px !important;
+
+    padding: 7px 11px !important;
+
+    white-space: nowrap !important;
+  }
+
+
+  /* Section titles */
+  .profile section h2,
+  .detail-card section h2,
+  .sahaba-detail section h2,
+  .section-title {
+    font-size: 27px !important;
+    line-height: 1.15 !important;
+
+    margin: 30px 0 14px !important;
+  }
+
+
+  /* Biography text */
+  .profile section p,
+  .detail-card section p,
+  .sahaba-detail section p,
+  .section-text {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+
+    margin-bottom: 16px !important;
+  }
+
+
+  /* =========================
+     QUICK LINKS
+     ========================= */
+
+  .quick-links {
+    width: calc(100% - 32px);
+
+    margin: 26px auto 38px;
+  }
+
+
+  .quick-links h2 {
+    font-size: 27px;
+  }
+
+
+  .quick-links-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 9px;
+  }
+
+
+  .quick-link-card {
+    min-height: 76px;
+
+    padding: 12px;
+
+    border-radius: 17px;
+  }
+
+
+  .quick-icon {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 11px;
+
+    font-size: 17px;
+  }
+
+
+  .quick-text {
+    gap: 2px;
+  }
+
+
+  .quick-text strong {
+    font-size: 14px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  .quick-text small {
+    font-size: 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  .quick-arrow {
+    display: none;
+  }
+}
+
+
+
+/* =========================
+   VERY SMALL PHONES
+   ========================= */
+
+@media (max-width: 430px) {
+
+  .card {
+    padding: 19px 17px !important;
+    border-radius: 23px !important;
+
+    gap: 10px !important;
+  }
+
+
+  .card .arabic {
+    font-size: 24px !important;
+  }
+
+
+  .card h2,
+  .card h3,
+  .card .name,
+  .card .title {
+    font-size: clamp(19px, 5.5vw, 24px) !important;
+
+    white-space: nowrap !important;
+  }
+
+
+  .card p,
+  .card .summary,
+  .card .description {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+
+  .card .fact,
+  .card .tag,
+  .card .badge,
+  .card .facts span,
+  .card .tags span,
+  .card .badges span {
+    font-size: 12px !important;
+
+    padding: 6px 10px !important;
+  }
+
+
+  /* DETAIL PAGE */
+
+  .profile,
+  .detail-card,
+  .sahaba-detail {
+    width: calc(100% - 20px) !important;
+
+    padding: 21px 17px !important;
+
+    border-radius: 23px !important;
+  }
+
+
+  .profile .arabic,
+  .detail-card .arabic,
+  .sahaba-detail .arabic {
+    font-size: 28px !important;
+  }
+
+
+  .profile h1,
+  .detail-card h1,
+  .sahaba-detail h1 {
+    font-size: 28px !important;
+  }
+
+
+  .profile .summary,
+  .detail-card .summary,
+  .sahaba-detail .summary {
+    font-size: 16px !important;
+  }
+
+
+  .profile section h2,
+  .detail-card section h2,
+  .sahaba-detail section h2,
+  .section-title {
+    font-size: 24px !important;
+  }
+
+
+  .profile section p,
+  .detail-card section p,
+  .sahaba-detail section p,
+  .section-text {
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+
+  /* QUICK LINKS */
+
+  .quick-links-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+
+/* Өте тар экран */
+@media (max-width: 360px) {
+
+  .quick-links-grid {
+    grid-template-columns: 1fr;
   }
 
 }
